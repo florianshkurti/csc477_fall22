@@ -17,10 +17,10 @@
 </head>
 <body>
 
-
+  
 <div class="container theme-showcase" role="main">
     <div class="page-header">
-        <h1>CSC477: Introduction to Mobile Robotics, Fall 2021</h1>
+        <h1>CSC477/CSC2630: Introduction to Mobile Robotics, Fall 2022</h1>
     </div>
 
     <div class="imgs">
@@ -38,12 +38,12 @@
     <div class="row">
       <div id="ov">
       <h3>Overview</h3>
-      This course provides an introduction to robotic systems from a computational perspective. A
-        robot is regarded as an intelligent computer that can use sensors and act on the world. We will consider the definitional problems in
-        robotics and look at how they are being solved in practice and by the research community. The emphasis is on algorithms, probabilistic reasoning,
-        optimization, inference mechanisms, and behavior strategies, as opposed to electromechanical systems design. This course aims to help students
-        improve their probabilistic modeling skills and instill the idea that <b><i>a robot that explicitly accounts for its uncertainty works better than
-        a robot that does not.</i></b>
+      This cross-listed course (undergraduate version CSC477H, graduate version CSC2630H) provides an introduction to robotic systems from a computational perspective. A
+      robot is regarded as an intelligent computer that can use sensors and act on the world. We will consider the definitional problems in
+      robotics and look at how they are being solved in practice and by the research community. The emphasis is on algorithms, probabilistic reasoning,
+      optimization, inference mechanisms, and behavior strategies, as opposed to electromechanical systems design. This course aims to help students
+      improve their probabilistic modeling skills and instill the idea that <b><i>a robot that explicitly accounts for its uncertainty works better than
+      a robot that does not.</i></b>
       </div>
 
       
@@ -59,12 +59,13 @@
 
         <div class="ts">
         <div><b>Teaching Assistants</b></div>
-        <div><a href="https://yashkant.github.io/">Yash Kant</a></div>
-        <div>Office Hours: Tue, 4-5pm ET</div>
-	<div>Tutorial: Wed, 6-7pm ET</div>
-	<div><a href="">Philip (Yizhou) Huang</a></div>
-        <div>Office Hours: Fri, 10-11am ET</div>
-	<div>Tutorial: Wed, 5-6pm ET</div>
+	<div><a href="">Yewon Lee</a></div>
+        <div>Office Hours: Tue 11am-noon ET</div>
+	<div><a href="">Yasasa Abeysirigoonawardena</a></div>
+        <div>Office Hours: TBA</div>
+	<div><a href="">Radian Gondokaryono</a></div>
+	<div>Office Hours: TBA</div>
+	<div>Tutorials: Wed, 5-6pm ET</div>
 	<div>y@cs.toronto.edu, y=csc477-tas</div>
 	
 	
@@ -72,9 +73,9 @@
 
         <div class="ts">
 	<div><b>Course Links</b></div>
-        <div>Zoom links have been posted on Quercus</div>
+        <div>Zoom links will be posted on Quercus</div>
         <div>Announcements will be posted on <a href="http://toolboxrenewal.utoronto.ca/">Quercus</a></div>
-	<div>Discussions will take place on <a href="http://piazza.com/utoronto.ca/fall2021/csc477">Piazza</a></div>
+	<div>Discussions will take place on <a href="http://piazza.com/utoronto.ca/fall2022/csc477">Piazza</a></div>
         
 	<div><a href="https://www.surveymonkey.com/r/H8QH65F">Anonymous feedback form</a> for suggested improvements</div>
         <div><a href="./CSC477_Syllabus.pdf">Course Syllabus</a></div>
@@ -89,6 +90,22 @@
       
       
       <div id="cd"> 
+      <h3>Cross-Campus Course Delivery</h3>
+      <p><b>Lectures</b> for this course will be delivered in person by the instructor at the UTM campus on Wednesdays 3-5pm ET, in MN3190. Lectures will also be livestreamed on Zoom
+	for those joining remotely, and projected in the Myhal Building in the St George campus, room MY580, for students who want to join in person from the St George campus.
+	There will be a videconferencing setup in MY580 and MN3190, allowing all students to ask questions live. Lectures will be recorded and posted online a
+	few hours after the recording.
+      </p>
+      <p><b>Tutorials</b> for this course will be delivered in person by one of the TAs at the UTM campus on Wednesdays 5-6pm ET, in DH2020. Tutorials will also be livestreamed on Zoom
+	for those joining remotely, and projected in the Myhal Building in the St George campus, room MY580, for students who want to join in person from the St George campus.
+	There will be a videconferencing setup in MY580 and DH2020, allowing all students to ask questions live. Tutorials will be recorded and posted online a
+	few hours after the recording.
+      </p>
+      <p><b>Office hours</b> for this course will be delivered on Zoom. In person office hours can be arranged by appointment.</p>
+      <p></p>
+
+      <br/><br/>
+      	
       <h3>Course Description</h3>
       This course will broadly cover the following areas:
       <br/><br/>
@@ -127,7 +144,7 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td id="day">Sep 8</td>
+                        <td id="day">Sep 14</td>
                         <td>
                           <b>Introduction</b><br/>
                           Motivation, logistics, rough description of assignments, sense-plan-act paradigm.<br/> 
@@ -145,7 +162,7 @@
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td>Sep 15</td>
+                        <td>Sep 21</td>
                         <td>
                           <b>Kinematics</b><br>
                           Frames of reference. Rotation representations. Homogeneous coordinates and transformations. Rigid body motion.<br/><br/>
@@ -166,9 +183,10 @@
                         </td>
                         
                     </tr>
-	            <tr>
+
+		    <tr>
                         <td>3</td>
-                        <td>Sep 22</td>
+                        <td>Sep 28</td>
                         <td>
                           <b>PID Control</b><br>
                           Tuning, cascading PID, advantages and drawbacks.<br/><br/>
@@ -192,25 +210,8 @@
                     </tr>
 	      
                     <tr>
-                        <td>4</td>
-                        <td>Sep 29</td>
-                        <td>
-                          <b>Linear Quadratic Regulator (LQR)</b><br/>
-                          Computing optimal actions for linear dynamical systems with quadratic cost-to-go functions.<br/>
-                          <!--a href="./quizzes/quiz1.pdf">Quiz 1 (Transformations and PID)</a-->
-                          <br/><br/>
-                        </td>
-                        <td>Probability refresher</td>
-                        <td>
-                          <a href="https://github.com/florianshkurti/csc477_fall19/blob/master/slides/Lecture4.pdf">pdf</a>,
-                          <a href="https://github.com/florianshkurti/csc477_fall19/raw/master/slides/Lecture4.pptx">pptx</a>,
-                          <a href="https://github.com/florianshkurti/comp417/tree/master/lqr_examples/python">code</a></td>
-                        <td>Optional: Stephen Boyd's LQR <a href="https://stanford.edu/class/ee363/lectures/dlqr.pdf">notes</a> and <a href="https://stanford.edu/class/ee103/lectures/control/control_slides.pdf">examples</a></td>
-                    </tr>
-	      
-                    <tr>
                         <td>5</td>
-                        <td>Oct 6</td>
+                        <td>Oct 5</td>
                         <td>
                           <b>Planning</b><br>
                           Dijkstra, A*, Rapidly-exploring Random Trees (RRT), Probabilistic RoadMaps (PRM)
@@ -227,12 +228,13 @@
                         </td>
                         
                     </tr>
- 
+
+                    
 	            <tr>
                         <td></td>
-                        <td>Oct 13</td>
+                        <td>Oct 12</td>
                         <td>
-                          <i>Reading week</i><br>
+                          <i>Reading week at UTM. No office hours, lectures, or tutorials this week.</i><br>
 		          <br/><br/><br/>
                         </td>
                         <td></td>
@@ -241,10 +243,27 @@
   
                     </tr>
 
+		    <tr>
+                        <td>4</td>
+                        <td>Oct 19</td>
+                        <td>
+                          <b>Linear Quadratic Regulator (LQR)</b><br/>
+                          Computing optimal actions for linear dynamical systems with quadratic cost-to-go functions.<br/>
+                          <!--a href="./quizzes/quiz1.pdf">Quiz 1 (Transformations and PID)</a-->
+                          <br/><br/>
+                        </td>
+                        <td>Probability refresher</td>
+                        <td>
+                          <a href="https://github.com/florianshkurti/csc477_fall19/blob/master/slides/Lecture4.pdf">pdf</a>,
+                          <a href="https://github.com/florianshkurti/csc477_fall19/raw/master/slides/Lecture4.pptx">pptx</a>,
+                          <a href="https://github.com/florianshkurti/comp417/tree/master/lqr_examples/python">code</a></td>
+                        <td>Optional: Stephen Boyd's LQR <a href="https://stanford.edu/class/ee363/lectures/dlqr.pdf">notes</a> and <a href="https://stanford.edu/class/ee103/lectures/control/control_slides.pdf">examples</a></td>
+
+                     </tr> 
 
                     <tr>
                         <td>6</td>
-                        <td>Oct 20</td>
+                        <td>Oct 26</td>
 			<td>
                           <b>Map Representations and Map Alignment</b><br>
                           Occupancy grids, Octrees, Voronoi Graph, Homotopy Classes. Map alignment with known or unknown correspondences. Iterative Closest Point (ICP).<br/>
@@ -273,7 +292,7 @@
                     
 	            <tr>
                         <td>7</td>
-                        <td>Oct 27</td>
+                        <td>Nov 2</td>
                         <td>
                           <b>Maximum Likelihood, Least Squares Estimation, Maximum A Posteriori Estimation</b><br>
                           Least squares as a special case of maximum likelihood estimation on Gaussian models.<br><br>
@@ -295,7 +314,7 @@
 
                     <tr>
                         <td>8</td>
-                        <td>Nov 3</td>
+                        <td>Nov 9</td>
                         <td>
                           
                           <b>Kalman Filter</b><br/>
@@ -320,7 +339,7 @@
 	            
                     <tr>
                         <td>9</td>
-                        <td>Nov 10</td>
+                        <td>Nov 16</td>
                         <td>
                           
                           <b>Extended Kalman Filter (EKF)</b><br/>
@@ -344,7 +363,7 @@
    
                     <tr>
                         <td>10</td>
-                        <td>Nov 17</td>
+                        <td>Nov 23</td>
                         <td>
 
                           <b>Particle Filter</b><br>
@@ -366,7 +385,7 @@
      
 	            <tr>
                         <td>11</td>
-                        <td>Nov 24</td>
+                        <td>Nov 30</td>
                         <td>
                           <b>Camera Optics and Multi-view Geometry</b><br>
 		          Pinhole cameras, lenses, perspective projection. Aperture, focal length, exposure time, depth-of-field. Structure from Motion.  
@@ -383,7 +402,7 @@
      
 	            <tr>
                         <td>12</td>
-                        <td>Dec 01</td>
+                        <td>Dec 7</td>
                         <td>
                           <b>Visual odometry and Visual SLAM</b><br>
 		          Epipolar constraints. Depth from stereo disparity for parallel cameras. Triangulation as a least-squares problem. Scale issues in visual odometry
@@ -423,9 +442,9 @@
         <div class="ms">
         <h3>Assignments</h3>
         <ul>
-          <li>Assignment #1, <a href="https://github.com/florianshkurti/csc477_fall21/blob/master/wall_following_assignment/CSC477_Assignment_1.pdf">PID control for wall following and introduction to ROS</a>, due Oct 6, 3pm ET.
-          <li>Assignment #2, <a href="https://github.com/florianshkurti/csc477_fall21/blob/master/path_planning_and_control_assignment/description/CSC477_Assignment_2.pdf">Path planning with A*, RRT, and LQR control</a>, due Oct 27, 3pm ET.
-          <li>Assignment #3, <a href="https://github.com/florianshkurti/csc477_fall21/blob/master/estimation_assignment/latex/CSC477_Assignment_3.pdf">Occupancy grid mapping, EKF and least-squares localization</a>, due Nov 17, 3pm ET.
+          <li>Assignment #1, <a href="https://github.com/florianshkurti/csc477_fall21/blob/master/wall_following_assignment/CSC477_Assignment_1.pdf">PID control for wall following and introduction to ROS</a>, due Oct 10, 3pm ET.
+          <li>Assignment #2, <a href="https://github.com/florianshkurti/csc477_fall21/blob/master/path_planning_and_control_assignment/description/CSC477_Assignment_2.pdf">Path planning with A*, RRT, and LQR control</a>, due Oct 28, 3pm ET.
+          <li>Assignment #3, <a href="https://github.com/florianshkurti/csc477_fall21/blob/master/estimation_assignment/latex/CSC477_Assignment_3.pdf">Occupancy grid mapping, EKF and least-squares localization</a>, due Nov 23, 3pm ET.
           <li>Assignment #4, <a href="">Particle filters and Monte Carlo localization. Bonus: depth from stereo</a>, due Dec 7, 3pm ET. 
         </ul>
         </div>
@@ -437,7 +456,8 @@
         <ul>
           <li>4 assignments worth 15% each = 60%
 	  <li>7 quizzes worth 2% each = 14%  
-          <li>1 final exam worth 26%
+          <li>For CSC477H: 1 final exam worth 26%
+	  <li>For CSC2630H: 1 final project worth 26% 
         </ul>
         </div>
         
@@ -448,24 +468,24 @@
           <li>Planning Algorithms, by Lavalle
           <li>Robotics, Vision, and Control, by Corke
           <li>Computational Principles of Mobile Robotics, 2nd edition, by Dudek and Jenkin
-          <li>State Estimation for Robotics, by Barfoot
+	  <li>State Estimation for Robotics, by Barfoot
           <li>Bayesian Filtering and Smoothing, by Sarkka
           <li>Introduction to Autonomous Mobile Robots, by Siegwart, Nourbakhsh, Scaramuzza
+	  <li>Modern Robotics: Mechanics, Planning, and Control by Park and Lynch   
           <li>(Chapters 2 and 4 from) Computer Vision: Models, Learning, and Inference, by Prince   
         </ul>
         </div>
 
-        <!--div class="rt">
+        <div class="rt">
         <h3>Self-Driving RC Cars</h3>
 
-        We are in the process of incorporating 5 RC-cars with navigation sensors (Intel Realsense RGBD cameras, Hokuyo 2D LiDAR, IMU) and onboard computing (NVIDIA Jetson Xavier)
-        into the course assignments. We bought these cars from the <a href="https://www.jetsonhacks.com/racecar-j/">RACECAR/J team</a>, and we are currently assembling them. We will very likely
-        have them ready by the second half of the semester. Stay tuned! 
+        In addition to simulation, the assignments of this course include hands-on experience with RC-cars with navigation sensors (Intel Realsense RGBD cameras, Hokuyo 2D LiDAR, IMU) and onboard computing (NVIDIA Jetson Xavier).
+	We bought these cars from the <a href="https://www.jetsonhacks.com/racecar-j/">RACECAR/J team</a> and we are making them available to undergraduate and graduate students for their assignments or final project.   
         <br/><br/><br/><br/>
 
-        <iframe width="1223" height="688" src="https://www.youtube.com/embed/gaV5hb1b3no" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="610" height="344" src="https://www.youtube.com/embed/gaV5hb1b3no" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         
-        </div-->
+        </div>
 
         
         
