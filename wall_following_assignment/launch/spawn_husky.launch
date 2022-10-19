@@ -34,7 +34,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   <arg name="tf_prefix" default="/"/>
   <arg name="robot_name" default="/"/>
   
-  <param name="robot_description" command="$(find xacro)/xacro.py $(find wall_following_assignment)/urdf/description.gazebo.xacro
+  <param name="robot_description" command="$(find xacro)/xacro $(find wall_following_assignment)/urdf/description.gazebo.xacro
     laser_enabled:=$(arg laser_enabled)
     ur5_enabled:=$(arg ur5_enabled)
     kinect_enabled:=$(arg kinect_enabled)

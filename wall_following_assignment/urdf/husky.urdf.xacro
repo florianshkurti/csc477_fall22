@@ -35,12 +35,12 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
   <!--xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" /-->
   <!--xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro" /-->
 
-  <property name="M_PI" value="3.14159"/>
+  <xacro:property name="M_PI" value="3.14159"/>
 
   <!-- Base Size -->
-  <property name="base_x_size" value="0.98740000" />
-  <property name="base_y_size" value="0.57090000" />
-  <property name="base_z_size" value="0.24750000" />
+  <xacro:property name="base_x_size" value="0.98740000" />
+  <xacro:property name="base_y_size" value="0.57090000" />
+  <xacro:property name="base_z_size" value="0.24750000" />
 
   <!-- Wheel Mounting Positions -->
   <xacro:property name="wheelbase" value="0.5120" />
@@ -144,7 +144,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 
     <xacro:if value="$(arg laser_enabled)">
 
-      <sick_lms1xx_mount prefix="base" topic="scan"/>
+      <xacro:sick_lms1xx_mount prefix="base" topic="scan"/>
 
       <joint name="laser_mount_joint" type="fixed">
         <origin xyz="$(optenv HUSKY_LMS1XX_XYZ 0.2206 0.0 0.00635)"
