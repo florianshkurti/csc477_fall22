@@ -4,16 +4,16 @@ import time
 import pickle
 import numpy as np
 from itertools import product
-from math import cos, sin, pi, sqrt 
+from math import cos, sin, pi, sqrt
 
 from plotting_utils import draw_plan
 from priority_queue import priority_dict
 
-class State(object):
+class State:
     """
-    2D state. 
+    2D state.
     """
-    
+
     def __init__(self, x, y):
         """
         x represents the columns on the image and y represents the rows,
@@ -22,12 +22,12 @@ class State(object):
         self.x = x
         self.y = y
 
-        
+
     def __eq__(self, state):
         """
         When are two states equal?
-        """    
-        return state and self.x == state.x and self.y == state.y 
+        """
+        return state and self.x == state.x and self.y == state.y
 
     def __hash__(self):
         """
@@ -35,13 +35,19 @@ class State(object):
         want to use State objects as keys in dictionaries
         """
         return hash((self.x, self.y))
-    
-    
-class AStarPlanner(object):
+
+    def __lt__(self, other):
+        """
+        Comparison operator to break ties when two states have the same priority.
+        """
+        return self.x < other.x or self.y < other.y
+
+
+class AStarPlanner:
     """
     Applies the A* shortest path algorithm on a given grid world
     """
-    
+
     def __init__(self, world):
         # (rows, cols, channels) array with values in {0,..., 255}
         self.world = world
@@ -49,28 +55,28 @@ class AStarPlanner(object):
         # (rows, cols) binary array. Cell is 1 iff it is occupied
         self.occ_grid = self.world[:,:,0]
         self.occ_grid = (self.occ_grid == 0).astype('uint8')
-        
+
     def state_is_free(self, state):
         """
-        Does collision detection. Returns true iff the state and its nearby 
+        Does collision detection. Returns true iff the state and its nearby
         surroundings are free.
         """
         return (self.occ_grid[state.y-5:state.y+5, state.x-5:state.x+5] == 0).all()
-        
+
     def get_neighboring_states(self, state):
         """
         Returns free neighboring states of the given state. Returns up to 8
         neighbors (north, south, east, west, northwest, northeast, southwest, southeast)
         """
-        
+
         x = state.x
         y = state.y
-        
+
         rows, cols = self.world.shape[:2]
 
         dx = [0]
         dy = [0]
-        
+
         if (x > 0):
             dx.append(-1)
 
@@ -89,8 +95,8 @@ class AStarPlanner(object):
             if delta_x != 0 or delta_y != 0:
                 ns = State(x + delta_x, y + delta_y)
                 if self.state_is_free(ns):
-                    yield ns 
-            
+                    yield ns
+
 
     def _follow_parent_pointers(self, parents, state):
         """
@@ -100,11 +106,11 @@ class AStarPlanner(object):
         path [start_state, ..., destination_state] by following the
         parent pointers.
         """
-        
+
         assert (state in parents)
         curr_ptr = state
         shortest_path = [state]
-        
+
         while curr_ptr is not None:
             shortest_path.append(curr_ptr)
             curr_ptr = parents[curr_ptr]
@@ -140,16 +146,16 @@ class AStarPlanner(object):
         # Contains key-value pairs of states where key is the parent of the value
         # in the computation of the shortest path
         parents = {start_state: None}
-        
+
         while Q:
-            
+
             # s is also removed from the priority Q with this
             s = Q.pop_smallest()
 
             # Assert s hasn't been evaluated before
             assert (evaluated[s.x, s.y] == 0)
             evaluated[s.x, s.y] = 1
-            
+
             if s == dest_state:
                 return self._follow_parent_pointers(parents, s)
 
@@ -168,14 +174,14 @@ class AStarPlanner(object):
                     Q[ns] = alternative_dist_to_come_to_ns
                     dist_to_come[ns.x, ns.y] = alternative_dist_to_come_to_ns
                     parents[ns] = s
-                    
+
         return [start_state]
 
 
-    
+
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        print "Usage: astar_planner.py occupancy_grid.pkl"
+        print("Usage: astar_planner.py occupancy_grid.pkl")
         sys.exit(1)
 
     pkl_file = open(sys.argv[1], 'rb')
@@ -187,7 +193,7 @@ if __name__ == "__main__":
 
     start_state = State(10, 10)
     dest_state = State(500, 500)
-    
+
     plan = astar.plan(start_state, dest_state)
     draw_plan(world, plan)
-    
+

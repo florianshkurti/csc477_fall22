@@ -1,14 +1,13 @@
-#!/usr/bin/env python
+from setuptools import setup
 
-from distutils.core import setup
-from catkin_pkg.python_setup import generate_distutils_setup
-
-d = generate_distutils_setup(
-    # #  don't do this unless you want a globally visible script
-    # scripts=['bin/myscript'], 
-    packages=['path_planning_and_control_assignment'],
-    package_dir={'': 'python'},
-    scripts=['python/dijkstra_planner.py']
+d = setup(
+    name='path_planning_and_control_assignment',
+    author=["Florian Shkurti"],
+    author_email="florian@cs.toronto.edu",
+    packages=["path_planning_and_control_assignment"],
+    install_requires=[
+        "numpy",
+        "scipy",
+        "opencv-python"
+    ]
 )
-
-setup(**d)
