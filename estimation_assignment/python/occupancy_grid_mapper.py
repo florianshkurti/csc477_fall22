@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import rospy
 import tf
 import tf.transformations as tr
@@ -252,7 +252,7 @@ class HuskyMapper:
         N = len(msg.ranges)
         
         ranges_in_baselaser_frame = msg.ranges
-        angles_in_baselaser_frame = [(msg.angle_max - msg.angle_min)*float(i)/N + msg.angle_min for i in xrange(len(msg.ranges))]
+        angles_in_baselaser_frame = [(msg.angle_max - msg.angle_min)*float(i)/N + msg.angle_min for i in range(len(msg.ranges))]
         angles_in_baselink_frame = angles_in_baselaser_frame[::-1]
         # This is because the z-axis of husky_1/base_laser is pointing downwards, while for husky_1/base_link and the map frame
         # the z-axis points upwards
@@ -284,8 +284,8 @@ class HuskyMapper:
         # This is the main loop in occupancy grid mapping
         #
         max_laser_range_in_cells = int(self.max_laser_range / self.ogm.meters_per_cell) + 1 
-        for delta_row in xrange(-max_laser_range_in_cells, max_laser_range_in_cells):
-            for delta_col in xrange(-max_laser_range_in_cells, max_laser_range_in_cells):
+        for delta_row in range(-max_laser_range_in_cells, max_laser_range_in_cells):
+            for delta_col in range(-max_laser_range_in_cells, max_laser_range_in_cells):
                 row = baselaser_row + delta_row
                 col = baselaser_col + delta_col
 
