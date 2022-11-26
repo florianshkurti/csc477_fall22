@@ -240,9 +240,10 @@ if __name__ == "__main__":
     
     resulting_states = solver.localize()
 
-    print "Norm of difference between estimated states and true states"
-    for t in range(num_timesteps):
-        print np.linalg.norm(resulting_states[t].diff(states[t]))
+
+    print("Norm of difference between estimated states and true states")
+    for t in xrange(num_timesteps):
+        print(np.linalg.norm(resulting_states[t].diff(states[t])))
         
     true_rx = [r.x for r in states]
     true_ry = [r.y for r in states]
