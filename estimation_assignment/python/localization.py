@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import rospy
 import tf
 import tf.transformations as tr
@@ -133,12 +133,12 @@ class LocalizationWithRangeMeasurements(object):
         F = np.concatenate((F, deviation_from_init_state))
 
         
-        for t in xrange(1, T):
+        for t in range(1, T):
             #TODO: Extend F by the dynamical model error from one estimated state to the next
             #      as defined by the current vector x 
             F = np.concatenate((F, dc))
         
-        for t in xrange(self.num_timesteps):
+        for t in range(self.num_timesteps):
             #TODO: Extend F by the observation model error of the observations made at time t
             #      in estimated state at time t, as currently defined by vector x  
             
@@ -151,7 +151,7 @@ class LocalizationWithRangeMeasurements(object):
         res = least_squares(self.cost_function, x_init)
         
         resulting_state_estimates_across_time = T * [ 0 ]
-        for t in xrange(T):
+        for t in range(T):
             resulting_state_estimates_across_time[t] = State(res.x[State.dim*t], res.x[State.dim*t+1])
             
         return resulting_state_estimates_across_time
@@ -193,7 +193,7 @@ if __name__ == "__main__":
 
     # These controls make the system move and visit num_timesteps States
     states = [State(0,0)]
-    for t in xrange(1, num_timesteps):
+    for t in range(1, num_timesteps):
         next_state = dynamics_model(states[t-1], controls[t-1], dt)
         next_state.add_noise(np.random.multivariate_normal(dynamics_noise_mean, dynamics_noise_covariance))
         states.append(next_state)
@@ -221,7 +221,7 @@ if __name__ == "__main__":
 
     # Creates observation objects according to the indexes specified above
     observations_across_time = num_timesteps * [ 0 ]
-    for t in xrange(num_timesteps):
+    for t in range(num_timesteps):
         observations_across_time[t] = []
         for i in observation_indexes_across_time[t]:
             z_t_i = measurement_model(states[t], landmarks[i])
@@ -239,6 +239,7 @@ if __name__ == "__main__":
                                                obs_noise_std_dev)
     
     resulting_states = solver.localize()
+
 
     print("Norm of difference between estimated states and true states")
     for t in xrange(num_timesteps):
@@ -272,7 +273,7 @@ if __name__ == "__main__":
                      bbox=dict(boxstyle='round,pad=0.5', fc='yellow', alpha=0.5),
                      arrowprops=dict(arrowstyle = '->', connectionstyle='arc3,rad=0'))
 
-    for t in xrange(num_timesteps):
+    for t in range(num_timesteps):
         for obs in observations_across_time[t]:
             l = landmarks[obs.landmark_id]
             plt.plot([l.x, states[t].x], [l.y, states[t].y], 'k--', alpha=0.3)
