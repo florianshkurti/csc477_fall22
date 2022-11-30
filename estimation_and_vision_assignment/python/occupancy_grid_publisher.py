@@ -11,6 +11,7 @@ if __name__ == '__main__':
     og_filename = rospy.get_param("~occupancy_grid_filename")
     pkl_file = open(og_filename, 'rb')
     og = pickle.load(pkl_file)
+    og.header.frame_id = "map" # Convert to tf2 frame format
 
     rate = rospy.Rate(1)
     og_pub = rospy.Publisher("/projected_map", OccupancyGrid, queue_size=1)
